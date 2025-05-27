@@ -11,6 +11,21 @@ export const databaseConfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_DATABASE || 'metrocery',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+
+  // Development: Auto sync schema và show queries
   synchronize: process.env.NODE_ENV !== 'production',
-  logging: process.env.NODE_ENV === 'development',
+
+  // Logging configuration
+  logging:
+    process.env.NODE_ENV === 'development'
+      ? ['query', 'error', 'schema']
+      : ['error'],
+
+  // Connection pool settings
+  extra: {
+    connectionLimit: 10,
+  },
+
+  // Timezone
+  timezone: '+07:00', // Vietnam timezone
 };
