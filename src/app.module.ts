@@ -8,6 +8,7 @@ import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CoreModule } from './modules/core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { EmployeesModule } from './modules/employees/employees.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { SharedModule } from './modules/shared/shared.module';
     TypeOrmModule.forRoot(databaseConfig),
     UsersModule,
     AuthModule,
+    EmployeesModule,
     CoreModule,
     SharedModule,
   ],
